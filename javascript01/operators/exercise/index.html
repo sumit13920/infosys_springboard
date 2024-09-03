@@ -1,0 +1,76 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Details</title>
+    <style>
+        div#maincontent {
+            height: 150px;
+            width: 500px;
+            border: 1px solid #CEE2FA;
+            text-align: left;
+            color: #08438E;
+            font-family: calibri;
+            font-size: 20;
+            padding: 5px;
+        }
+
+        div#heading {
+            text-decoration: bold;
+            text-align: center;
+            margin-top: 80px;
+            width: 500px;
+            border: 10x solid #CEE2FA;
+            text-align: center;
+            color: #08438E;
+            background-color:  #CEE2FA;
+            font-family: calibri;
+            font-size: 20;
+            padding: 5px;
+        }
+
+        h4 {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+ </head>
+
+ <body>
+    <center>
+        <div id="heading">
+            <b>Theatre Drama</b>
+        </div>
+        <div id="maincontent">
+            <h4>Your Ticket Details:</h4>
+            <br>
+            <script>
+                //Number of tickets booked
+                let numberOfTickets = 3;
+
+                //Price per ticket
+                let pricePerTicket = 9;
+
+                // Calculate total cost
+                let  totalCost = numberOfTickets * pricePerTicket;
+
+                // Festive season discount
+                let discountPercentage = 10;
+
+                // Calculate discount amount
+                let discountAmount = (discountPercentage / 100) * totalCost;
+
+                // Calculate total cost after discount 
+                let totalCostAfterDiscount = totalCost - discountAmount;
+
+                // Display ticket details
+                document.getElementById("maincontent").innerHTML = `
+                Total number of seats booked: ${numberOfTickets} <br>
+                Total cost of ${numberOfTickets} tickets: $${totalCost} <br> Festive season discount is: ${discountPercentage} % <br> Total cost after discount is: $${totalCostAfterDiscount.toFixed(2)}
+                `;
+            </script>
+        </div>
+    </center>
+ </body>
+ </html>
