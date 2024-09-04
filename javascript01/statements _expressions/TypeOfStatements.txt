@@ -1,0 +1,69 @@
+In JavaScript, the statements can be classified into two types.
+1.Conditional
+2.Non-Conditional
+
+1.Conditional Statements:
+
+conditional statements help you to decide based on certain conditions.
+These conditions are specified by a set of conditional statements having boolean expressions that are evaluated to a boolean value true or false.
+
+2.Non-Conditional Statements:
+Non-Conditional statements are those statements that do not need any condition to control the program execution flow.
+
+2. Non - conditional statements
+There are times when during the iteration of the block of code with the loop, the block execution may be required to be skipped for a specific value and then continue to execute the block for all the other values.
+JavaScript gives a 'continue' statement to handle this.
+
+Continue Statements is used to terminate the current iteration of the loop and continue execution of the loop with the nextiteration.
+
+Syntax:
+Continue;
+
+Below example shows for loop with five itearations which increment variable "counter".
+When loop counter = 3, the current iteration is skipped and moved to the next iteration.
+Also, shown below is the value of the counter and the variable loop for every iteration of the loop.
+
+var counter = 0;
+for (var loop = 0; loop < 5; loop++) {
+    if (loop == 3)
+        continue;
+    counter++
+}
+
+|loopVAr|             counter
+|0      |1
+|1      |2
+|2      |3
+|3      |iteration terminated.Hence counter is not incremented.
+|4      |4
+
+The 'if' statement used in the example is a contitional / decision-making statement.
+
+
+Type of Conditional Statements
+
+1. if- Else 
+2. Switch Case 
+
+
+Example:
+let workingHours = 9.20;
+let additional Hours;
+(workingHours > 9.15) ? additionalHOurs = "YOU have positive additional hours" : additionalHours = "You have negative additional hours";
+console.log(additionalHours);
+
+
+If Statements
+
+if...else ladder is used to check for a new condition when the first condition evaluates to false.
+
+Syntax:
+if(condition1) {
+    //block of code that will be executed if condition1 is true
+}
+else if (condition2) {
+    //block of code that will be executed if the condition1 false and condition2 is true
+}
+else {
+    // block of code that will be executed if the condition1 is false and condition2 is false
+}
