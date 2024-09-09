@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Booking Details</title>
+    <style>
+        div#maincontent {
+            height: 200px;
+            width: 600px;
+            border: 1px solid #CEE2FA;
+            text-align: left;
+            color: #08438E;
+            font-family: Calibri, sans-serif;
+            font-size: 20px;
+            padding: 5px;
+        }
+
+        div#heading {
+            text-align: center;
+            margin-top: 80px;
+            width: 600px;
+            border: 1px solid #CEE2FA;
+            color: #08438E;
+            background-color: #CEE2FA;
+            font-family: Calibri, sans-serif;
+            font-size: 20px;
+            padding: 5px;
+        }
+
+        h4 {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div id="heading">
+            <b>Theatre Drama</b>
+        </div>
+        <div id="maincontent">
+            <h4>Your Ticket Details:</h4>
+            <br>
+            <div id="ticketDetails"></div>
+            <script>
+                function bookTickets(numberOfSeats) {
+                    const ticketPrice = 9;
+                    let totalCost = 0;
+                    const ticketDetailsDiv = document.getElementById('ticketDetails');
+                    ticketDetailsDiv.innerHTML = ''; // Clear previous output
+
+                    if (numberOfSeats <= 2) {
+                        // Cost per ticket remains $9 if seats are 2 or less
+                        totalCost = numberOfSeats * ticketPrice;
+                        ticketDetailsDiv.innerHTML += `Booking successful! Number of seats: ${numberOfSeats}. Total cost: $${totalCost.toFixed(2)}<br>`;
+                    } else if (numberOfSeats >= 5) {
+                        // Booking is not allowed if seats are 5 or more
+                        ticketDetailsDiv.innerHTML += "Booking not allowed for 5 or more seats.<br>";
+                    } else {
+                        // Apply discounts for 3 or 4 seats
+                        let discountPercent = 5; // Starting discount at 5% for the 1st additional seat beyond 2
+                        for (let i = 1; i <= numberOfSeats; i++) {
+                            if (i > 2) {
+                                // Apply increasing discount for each additional seat beyond the second
+                                let discount = (ticketPrice * discountPercent) / 100;
+                                let seatCost = ticketPrice - discount;
+                                totalCost += seatCost;
+                                ticketDetailsDiv.innerHTML += `Ticket for Customer ${i - 2} gets ${discountPercent}% discount!, Cost is: $${seatCost.toFixed(2)}<br>`;
+                                discountPercent += 2; // Increase discount by 2% for each additional seat
+                            } else {
+                                // No discount for the first two seats
+                                totalCost += ticketPrice;
+                            }
+                        }
+                        const originalCost = numberOfSeats * ticketPrice;
+                        ticketDetailsDiv.innerHTML += `For ${numberOfSeats} tickets, you need to pay: $${totalCost.toFixed(2)} instead of $${originalCost}<br>`;
+                    }
+                }
+
+                // Test with different values for the number of seats
+                bookTickets(1); // Booking 1 seat
+                bookTickets(2); // Booking 2 seats
+                bookTickets(3); // Booking 3 seats
+                bookTickets(4); // Booking 4 seats
+                bookTickets(5); // Booking not allowed
+            </script>
+        </div>
+    </center>
+</body>
+
+</html>
